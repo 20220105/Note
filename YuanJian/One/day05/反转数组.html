@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+   </head>
+ <body>
+     
+  <script>
+
+    // 方法一
+    function fanzhuan(n) {
+      let plusOrMinus = 1
+      if (n == 0) return 0
+      if (n < 0) {
+        plusOrMinus = -1
+        n = -n
+      }
+      let jilu = 0 //记录每次计算的余数
+      let jieguo = 0
+      while (n > 0) {
+        jilu = n % 10 //取余记录
+        n = (n - jilu) / 10 //取余后减去上次取余的结果,然后除10,继续循环的主体
+        jieguo = jieguo * 10 + jilu //取余相加
+      }
+      let res = jieguo * plusOrMinus
+      return res
+    }
+    console.log(fanzhuan(0))
+//  方法二
+let reversal = (num)=>{
+    if (num == 0) {
+        return 0
+    }
+    let flag = 1
+    if (num < 0) {
+        flag = -1
+        num = -num
+    }
+    let newNum = 0
+    while (num) {
+        newNum = newNum * 10 + num % 10
+        num = Math.floor(num / 10)
+    }
+    return flag * newNum
+
+}
+console.log(reversal(-3453))
+
+
+  </script>
+   
+</body>
+
+</html>
